@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Алхимия грамматики: Passive Voice | 8 класс</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #e8e8e8;
+    min-height: 100vh;
+    padding: 20px;
+    background-attachment: fixed;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(233, 196, 106, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(131, 56, 236, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  header {
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 2px solid rgba(233, 196, 106, 0.3);
+    margin-bottom: 30px;
+  }
+  
+  .symbol {
+    font-size: 3em;
+    color: #e9c46a;
+    text-shadow: 0 0 20px rgba(233, 196, 106, 0.5);
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(233, 196, 106, 0.5); }
+    50% { text-shadow: 0 0 30px rgba(233, 196, 106, 0.9), 0 0 50px rgba(233, 196, 106, 0.4); }
+  }
+  
+  h1 {
+    font-size: 2.2em;
+    color: #e9c46a;
+    margin: 15px 0 10px;
+    letter-spacing: 2px;
+    font-weight: normal;
+  }
+  
+  .subtitle {
+    color: #a8a8b8;
+    font-style: italic;
+    font-size: 1.1em;
+  }
+  
+  .meta {
+    margin-top: 15px;
+    color: #8a8a9a;
+    font-size: 0.9em;
+  }
+  
+  section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(233, 196, 106, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  h2 {
+    color: #e9c46a;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(233, 196, 106, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  h2::before {
+    content: '✦';
+    color: #e9c46a;
+  }
+  
+  .theory p {
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: #d0d0e0;
+  }
+  
+  .formula {
+    background: linear-gradient(135deg, rgba(131, 56, 236, 0.2), rgba(233, 196, 106, 0.15));
+    border: 1px solid #e9c46a;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.2em;
+    color: #e9c46a;
+    letter-spacing: 1px;
+    font-weight: bold;
+    box-shadow: inset 0 0 20px rgba(233, 196, 106, 0.1);
+  }
+  
+  .formula .arrow {
+    color: #8338ec;
+    margin: 0 10px;
+    font-size: 1.3em;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  th {
+    background: rgba(233, 196, 106, 0.2);
+    color: #e9c46a;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(233, 196, 106, 0.3);
+  }
+  
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #d0d0e0;
+  }
+  
+  tr:last-child td { border-bottom: none; }
+  
+  .example {
+    background: rgba(131, 56, 236, 0.1);
+    border-left: 3px solid #8338ec;
+    padding: 10px 15px;
+    margin: 10px 0;
+    font-style: italic;
+    color: #c8b8e8;
+  }
+  
+  .exercise {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .exercise-title {
+    color: #e9c46a;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  
+  .task-list {
+    list-style: none;
+    counter-reset: task;
+  }
+  
+  .task-list li {
+    counter-increment: task;
+    padding: 8px 0 8px 35px;
+    position: relative;
+    line-height: 1.6;
+    color: #d0d0e0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  }
+  
+  .task-list li:last-child { border-bottom: none; }
+  
+  .task-list li::before {
+    content: counter(task) ")";
+    position: absolute;
+    left: 0;
+    color: #8338ec;
+    font-weight: bold;
+  }
+  
+  .blank {
+    display: inline-block;
+    min-width: 80px;
+    border-bottom: 2px dotted #e9c46a;
+    color: #e9c46a;
+    padding: 0 5px;
+    text-align: center;
+  }
+  
+  .hint {
+    background: rgba(131, 56, 236, 0.15);
+    border: 1px dashed #8338ec;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 0.95em;
+    color: #c8b8e8;
+  }
+  
+  .hint strong { color: #e9c46a; }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #8a8a9a;
+    font-size: 0.9em;
+    font-style: italic;
+    border-top: 1px solid rgba(233, 196, 106, 0.2);
+    margin-top: 30px;
+  }
+  
+  .active-passive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+  }
+  
+  .voice-box {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 140px;
+  }
+  
+  .voice-box.active {
+    background: rgba(131, 56, 236, 0.3);
+    border: 1px solid #8338ec;
+    color: #c8b8e8;
+  }
+  
+  .voice-box.passive {
+    background: rgba(233, 196, 106, 0.2);
+    border: 1px solid #e9c46a;
+    color: #e9c46a;
+  }
+  
+  .transform-arrow {
+    font-size: 2em;
+    color: #e9c46a;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+  }
+  
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6em; }
+    .symbol { font-size: 2.2em; }
+    section { padding: 18px; }
+    .formula { font-size: 1em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="symbol">⚗</div>
+    <h1>Алхимия грамматики</h1>
+    <div class="subtitle">Превращение Active Voice в Passive Voice</div>
+    <div class="meta">📅 20 ноября 2026 г. &nbsp;•&nbsp; 🎓 8 класс &nbsp;•&nbsp; 💻 Дистанционный урок</div>
+  </header>
+
+  <section class="theory">
+    <h2>Цели урока</h2>
+    <p>Сегодня мы с вами — грамматики-алхимики. Мы научимся превращать обычные предложения в их "зеркальное отражение" — <strong style="color:#e9c46a">Passive Voice</strong> (страдательный залог). Записывайте всё в тетрадь — магия требует точности!</p>
+  </section>
+
+  <section class="theory">
+    <h2>Теория: что такое Passive Voice?</h2>
+    <p>В английском языке есть два залога:</p>
+    <div class="active-passive">
+      <div class="voice-box active">Active Voice<br><small>Действие → совершает</small></div>
+      <div class="transform-arrow">⇄</div>
+      <div class="voice-box passive">Passive Voice<br><small>Действие → испытывает</small></div>
+    </div>
+    <p>В <strong>Active Voice</strong> подлежащее <em>само</em> совершает действие: <span class="example">The cat caught the mouse. — Кот поймал мышь.</span></p>
+    <p>В <strong>Passive Voice</strong> подлежащее <em>испытывает</em> действие на себе: <span class="example">The mouse was caught by the cat. — Мышь была поймана котом.</span></p>
+    
+    <div class="formula">
+      Passive Voice = <span style="color:#c8b8e8">to be</span> <span class="arrow">+</span> <span style="color:#c8b8e8">V<sub>3</sub> / V<sub>ed</sub></span>
+    </div>
+    
+    <p>Глагол <strong style="color:#e9c46a">to be</strong> меняется по временам, а смысловой глагол всегда стоит в <strong>3-й форме</strong> (или с окончанием -ed).</p>
+    
+    <table>
+      <tr>
+        <th>Время</th>
+        <th>Форма to be</th>
+        <th>Пример</th>
+      </tr>
+      <tr>
+        <td>Present Simple</td>
+        <td>am / is / are</td>
+        <td>The letter <strong>is written</strong>.</td>
+      </tr>
+      <tr>
+        <td>Past Simple</td>
+        <td>was / were</td>
+        <td>The letter <strong>was written</strong>.</td>
+      </tr>
+      <tr>
+        <td>Present Continuous</td>
+        <td>am / is / are + being</td>
+        <td>The letter <strong>is being written</strong>.</td>
+      </tr>
+      <tr>
+        <td>Present Perfect</td>
+        <td>have / has + been</td>
+        <td>The letter <strong>has been written</strong>.</td>
+      </tr>
+      <tr>
+        <td>Future Simple</td>
+        <td>will be</td>
+        <td>The letter <strong>will be written</strong>.</td>
+      </tr>
+    </table>
+    
+    <div class="hint">
+      <strong>💡 Запомни правило превращения:</strong><br>
+      1. Дополнение из Active → становится подлежащим в Passive.<br>
+      2. Глагол ставится в Passive: <em>to be</em> в нужном времени + V<sub>3</sub>.<br>
+      3. Подлежащее из Active → становится дополнением с предлогом <strong style="color:#e9c46a">by</strong> (или опускается).
+    </div>
+  </section>
+
+  <section>
+    <h2>Упражнение 1. Active или Passive?</h2>
+    <p>Определите, в каком залоге стоит глагол в предложении. Запишите в тетрадь номер и ответ: <strong style="color:#e9c46a">A</strong> (Active) или <strong style="color:#e9c46a">P</strong> (Passive).</p>
+    
+    <div class="exercise">
+      <ol class="task-list">
+        <li>The chef cooks dinner every evening.</li>
+        <li>Dinner is cooked by the chef every evening.</li>
+        <li>Shakespeare wrote many famous plays.</li>
+        <li>Many famous plays were written by Shakespeare.</li>
+        <li>The students are learning English now.</li>
+        <li>English is being learned by the students now.</li>
+        <li>Somebody has broken the window.</li>
+        <li>The window has been broken.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>Упражнение 2. Раскрой скобки</h2>
+    <p>Поставьте глагол в скобках в <strong>Passive Voice</strong> в нужном времени (Present Simple или Past Simple). Запишите полные предложения в тетрадь.</p>
+    
+    <div class="exercise">
+      <ol class="task-list">
+        <li>English <span class="blank">(speak)</span> in many countries.</li>
+        <li>This book <span class="blank">(write)</span> by Mark Twain in 1876.</li>
+        <li>My phone <span class="blank">(steal)</span> yesterday!</li>
+        <li>These cars <span class="blank">(make)</span> in Germany.</li>
+        <li>The homework <span class="blank">(check)</span> by the teacher every day.</li>
+        <li>Rome <span class="blank">(not build)</span> in a day.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>Упражнение 3. Великое превращение</h2>
+    <p>Переделайте предложения из <strong>Active Voice</strong> в <strong>Passive Voice</strong>. Не забудьте про предлог <strong style="color:#e9c46a">by</strong>, если важно, кто совершил действие!</p>
+    
+    <div class="exercise">
+      <ol class="task-list">
+        <li>Tom cleans the room every day.</li>
+        <li>They built this bridge in 1995.</li>
+        <li>My mother cooks delicious cakes.</li>
+        <li>Shakespeare wrote "Romeo and Juliet".</li>
+        <li>People speak Spanish in Mexico.</li>
+        <li>The mechanic repaired our car yesterday.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="theory">
+    <h2>Домашнее задание</h2>
+    <p>✨ Составьте <strong>5 собственных предложений</strong> в Passive Voice о том, что сделано в вашей комнате или школе. Например: <em>"The floor is swept every morning."</em></p>
+    <p>📖 Выучите таблицу форм Passive Voice.</p>
+  </section>
+
+  <footer>
+    ⚗ "Грамматика — это алхимия языка: преврати одно — получишь другое" ⚗<br>
+    <small>Урок английского языка • 8 класс • 20.11.2026</small>
+  </footer>
+
+</div>
+
+<script>
+  // Плавное появление секций при загрузке
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach((s, i) => {
+      s.style.opacity = '0';
+      s.style.transform = 'translateY(20px)';
+      s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      setTimeout(() => {
+        s.style.opacity = '1';
+        s.style.transform = 'translateY(0)';
+      }, 150 * i);
+    });
+  });
+</script>
+</body>
+</html>
